@@ -56,18 +56,18 @@ export default {
       table: {},
       total_pages: 0,
       page: {
-        'current_page': 1
+        current_page: 1
       },
       sort: {
-        'sort_active': false,
-        'sort_column': '',
-        'sort_reverse': false
+        sort_active: false,
+        sort_column: '',
+        sort_reverse: false
       },
       filter: {
-        'filter_active': false,
-        'filter_column': '',
-        'filter_operator': '',
-        'filter_value': ''
+        filter_active: false,
+        filter_column: '',
+        filter_operator: '',
+        filter_value: ''
       }
     }
   },

@@ -6,6 +6,7 @@ from utils import serialize
 from sqlalchemy import asc, desc
 
 import operator
+import math
 
 ROWS_PER_PAGE = 10
 CORS_HEADER = {'Access-Control-Allow-Origin': '*'}
@@ -22,7 +23,7 @@ def home():
         data = s.query(MainTable).limit(ROWS_PER_PAGE).all()
         data_json = serialize(data)
 
-    return (jsonify({'items': data_json, 'total_pages': int(total_count / ROWS_PER_PAGE)}),
+    return (jsonify({'items': data_json, 'total_pages': math.ceil(total_count / ROWS_PER_PAGE)}),
             200,
             CORS_HEADER
             )
@@ -48,7 +49,10 @@ def main_api():
         data = data.limit(ROWS_PER_PAGE).offset((page - 1) * ROWS_PER_PAGE).all()
         data_json = serialize(data)
 
-    return jsonify({'items': data_json, 'total_pages': int(total_count / ROWS_PER_PAGE)}), 200, CORS_HEADER
+    return (jsonify({'items': data_json, 'total_pages': math.ceil(total_count / ROWS_PER_PAGE)}),
+            200,
+            CORS_HEADER
+            )
 
 
 def _get_sorted_data(req, data):

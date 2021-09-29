@@ -9,7 +9,7 @@ def fake_data():
     fake = Faker()
     items = []
 
-    for _ in range(50):
+    for _ in range(83):
         items.append(MainTable(
             name=fake.name(),
             amount=randint(1, 30),
