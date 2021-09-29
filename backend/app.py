@@ -29,7 +29,7 @@ def home():
 
 
 @app.route('/api/', methods=['GET'])
-def request_analysis():
+def main_api():
     request_data = request.args.to_dict()
     is_sort = bool(strtobool(request_data['sort_active']))
     is_filter = bool(strtobool(request_data['filter_active']))
@@ -52,7 +52,6 @@ def request_analysis():
 
 
 def _get_sorted_data(req, data):
-
     method = bool(strtobool(req['sort_reverse']))
     column = getattr(MainTable, req['sort_column'])
 
