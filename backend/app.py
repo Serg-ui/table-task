@@ -48,7 +48,7 @@ def main_api():
         data = data.limit(ROWS_PER_PAGE).offset((page - 1) * ROWS_PER_PAGE).all()
         data_json = serialize(data)
 
-        return jsonify({'items': data_json, 'total_pages': int(total_count / ROWS_PER_PAGE)}), 200, CORS_HEADER
+    return jsonify({'items': data_json, 'total_pages': int(total_count / ROWS_PER_PAGE)}), 200, CORS_HEADER
 
 
 def _get_sorted_data(req, data):
