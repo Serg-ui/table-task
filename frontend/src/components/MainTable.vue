@@ -72,15 +72,21 @@ export default {
     }
   },
   methods: {
-    async sorting(column){
-      this.sort['sort_active'] = true
-      this.sort['sort_column'] = column
-      await this.request_to_api()
-      this.sort['sort_reverse'] = !this.sort['sort_reverse']
+    sorting(column){
+      this.sort.sort_active = true
+      this.sort.sort_column = column
+      if(this.sort.sort_column === column){
+        this.sort.sort_reverse = !this.sort.sort_reverse
+      }
+      else{
+        this.sort.sort_reverse = false
+      }
+      this.request_to_api()
+
     },
 
     pagination(page){
-      this.page['current_page'] = page
+      this.page.current_page = page
       this.request_to_api()
     },
 
