@@ -1,0 +1,6 @@
+Flask==2.0.1
+SQLAlchemy==1.4.23
+Faker==8.12.1
+alembic
+python-dotenv
+mysqlclient
